@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: Transfert-de-Devise
+
+  datasource:
+    url: jdbc:mysql://${SPRING_DATASOURCE_URL:localhost:3306}/transfert_devise?createDatabaseIfNotExist=true
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      database-plateforme: org.hibernate.MySQL8Dialect
+    show-sql: true
+
+server:
+  port: 2077
+
+application:
+  security:
+    jwt:
+      secret-key: 404E63526655A586E3272357538782F413F4428472B4B625064537566B
+      expiration: 464000000
+      refresh-token:
+        expiration: 604800000
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
